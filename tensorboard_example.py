@@ -32,3 +32,8 @@ if __name__=="__main__":
     Tensorboard= TensorBoard(log_dir="./model", histogram_freq=1,write_grads=True)
 
     history=model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, shuffle=True, validation_split=0.2,callbacks=[Tensorboard])
+    
+# 在同目录下cmd
+# 输入命令： 
+# tensorboard --logdir=model
+# 然后打开生成的网页即可训练可视化
