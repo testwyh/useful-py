@@ -1,3 +1,0 @@
-命令为 
-tensorboard --logdir=model
-然后打开生成的网页即可
