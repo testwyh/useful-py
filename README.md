@@ -17,6 +17,10 @@ MATLAB数值计算 Cleve B. Moler
 
 误差分析导论 John R. Tylor
 
+误差分析与测量不确定度评定 沙定国
+
+---------------------------
+
 # 电子信息专业基础
 **模电 童诗白/华成英**
 
@@ -42,11 +46,13 @@ STM32库开发实战指南-基于STM32F4 刘火良
 
 **数字图像处理 冈萨雷斯**
 
+数字图像处理（MATLAB版） 冈萨雷斯
+
 数字图像处理与机器视觉VisualC++和MATLAB实现 张铮等
 
 MEMS与微系统 Tai-Ran Hsu
 
-Measurement and Instrumentation Morris, Alan S
+-----------------------------------
 
 # Python & 机器学习 & 深度学习
 Python编程-从入门到实践 Eric Matthes
@@ -58,6 +64,8 @@ Python编程-从入门到实践 Eric Matthes
 Python数据科学手册 Jake VanderPlas 
 
 Learning from data Yaser S.等
+
+统计思维 Allen B.Downey
 
 **流畅的Python Luciano Ramalho**
 
@@ -91,12 +99,18 @@ MATLAB神经网络的43个案例分析 王小川
 
 集体智慧编程 Toby Segaran
 
+OpenCV轻松入门 李立宗
+
 异源图像匹配关键技术 董晶/罗世彬.等
 
 Biomedical Image Registration Dawant.等
 
+---------------------------------------------
+
 # 计算机 & 算法 & C/C++
 **C和指针 Kenneth A.Reek**
+
+**C专家编程 Peter Van Der Linden**
 
 **C++ Primer Stanley B. Lippman**
 
@@ -106,7 +120,11 @@ Biomedical Image Registration Dawant.等
 
 大话数据结构 程杰
 
+树莓派开发实战 Simon Monk
+
 **树莓派开始，玩转Linux Vamei**
+
+**汇编语言 王爽**
 
 Linux/UNIX系统编程手册 Michael Kerrisk
 
@@ -134,12 +152,14 @@ Unix&Linux大学教程 Harley Hahn
 
 数据密集型应用系统设计 Martin Kleppmann
 
-汇编语言 王爽
+---------------------------------
 
 # 科普 & 综述
 **科学研究与论文写作 钟澄**
 
 **上帝掷骰子吗 曹天元**
+
+科学哲学 奥卡沙
 
 科学革命的结构 托马斯·库恩
 
@@ -158,6 +178,8 @@ Unix&Linux大学教程 Harley Hahn
 **编码 Charles Petzold**
 
 为什么-关于因果关系的新科学 Judea Pearl
+
+---------------------------------------
 
 # 网课等资料
 点击跳转至网页链接：
