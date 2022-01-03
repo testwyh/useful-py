@@ -1,6 +1,7 @@
 import os
 
-path = 'jpg1/'
+path = 'jpg/'
+path1 = 'jpg2/'
 filelist = os.listdir(path)
 
 # 图片名先转化为int后分类（sort）
@@ -14,7 +15,7 @@ for item in filelist:
         src = os.path.join(path, item)   #原名位置
         s = str(i)
         # s = s.zfill(6)     #右对齐名称,这里不用
-        dst = os.path.join(path, 'image' + s + '.jpg')  #改名后位置
+        dst = os.path.join(path1, 'image' + s + '.jpg')  #改名后位置
         os.rename(src, dst)  #重命名
         print ('convert %s to %s ...' % (src, dst))
         i = i + 1
