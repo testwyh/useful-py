@@ -1,17 +1,17 @@
 # 数学
 线性代数 J.Leon
 
+数值分析 Timothy Sauer
+
 **统计学习方法 李航**
 
-**概率论与数理统计 陈希孺**
+概率论与数理统计 陈希孺
 
 概率论基础教程 Sheldon M. Ross
 
-数值分析 Timothy Sauer
+**最优化导论 Edwin K.P..**
 
-**最优化导论 Edwin K.P...**
-
-最优化-建模、算法与理论 刘浩洋.等
+**最优化-建模、算法与理论 刘浩洋.等**
 
 MATLAB数值计算 Cleve B. Moler
 
@@ -36,19 +36,21 @@ MATLAB数值计算 Cleve B. Moler
 
 STM32库开发实战指南-基于STM32F4 刘火良
 
-**嵌入式实时操作系统Μc/OS-Ⅱ原理及应用 任哲**
+嵌入式实时操作系统Μc/OS-Ⅱ原理及应用 任哲
 
 自动控制原理 卢京潮
 
 自动控制原理与设计 GeneF.Frankl
 
-信号与系统 Oppenheim
+**信号与系统 Oppenheim**
 
 **数字图像处理 冈萨雷斯**
 
 数字图像处理（MATLAB版） 冈萨雷斯
 
 数字图像处理与机器视觉VisualC++和MATLAB实现 张铮等
+
+机器人学、机器视觉与控制 Peter Corke
 
 MEMS与微系统 Tai-Ran Hsu
 
@@ -57,13 +59,13 @@ MEMS与微系统 Tai-Ran Hsu
 # Python & 机器学习 & 深度学习
 Python编程-从入门到实践 Eric Matthes
 
-**Python编程快速上手 Al Sweigart**
+Python编程快速上手 Al Sweigart
 
 **利用Python进行数据分析 Wes McKinney**
 
 Python数据科学手册 Jake VanderPlas 
 
-Learning from data Yaser S.等
+**Learning from data Yaser S..**
 
 统计思维 Allen B.Downey
 
@@ -71,19 +73,19 @@ Learning from data Yaser S.等
 
 深度学习入门-基于Python的理论与实现 斋藤康毅
 
-**Pattern Recognition and Machine Learning M. Bishop**
+**Pattern Recognition and Machine Learning M. Bishop（PRML）**
 
 **Python深度学习 弗朗索瓦•肖莱**
 
 **机器学习实战 Aurélien Géron**
 
-**深度学习 伊恩·古德费洛**
+**深度学习 Ian Godfellow**
 
 **动手学深度学习 Aston Zhang/李沐**
 
 **神经网络与深度学习 邱锡鹏**
 
-机器人学、机器视觉与控制 Peter Corke
+**集体智慧编程 Toby Segaran**
 
 模式识别 吴建鑫
 
@@ -96,8 +98,6 @@ MATLAB神经网络的43个案例分析 王小川
 集成学习 周志华
 
 迁移学习导论 王晋东
-
-集体智慧编程 Toby Segaran
 
 OpenCV轻松入门 李立宗
 
@@ -155,8 +155,6 @@ Unix&Linux大学教程 Harley Hahn
 ---------------------------------
 
 # 科普 & 综述
-**科学研究与论文写作 钟澄**
-
 **上帝掷骰子吗 曹天元**
 
 科学哲学 奥卡沙
