@@ -61,6 +61,8 @@ Python编程-从入门到实践 Eric Matthes
 
 Python编程快速上手 Al Sweigart
 
+**effective python 布雷特·斯拉特金**
+
 **利用Python进行数据分析 Wes McKinney**
 
 Python数据科学手册 Jake VanderPlas 
