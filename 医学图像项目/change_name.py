@@ -24,7 +24,7 @@ list = pd.read_csv(txt_dir, sep='\s+',
 # print(list)
 # print(list['name']+list['name_num'])
 
-print(list.iloc[0,0]+list.iloc[0,1])
+#print(list.iloc[0,0]+list.iloc[0,1])
 
 for item in filelist:
     if (item.endswith('.jpg')):
