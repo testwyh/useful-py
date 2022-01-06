@@ -124,6 +124,8 @@ Biomedical Image Registration Dawant.等
 
 树莓派开发实战 Simon Monk
 
+**鸟哥的Linux私房菜**
+
 **树莓派开始，玩转Linux Vamei**
 
 **汇编语言 王爽**
