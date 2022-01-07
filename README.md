@@ -122,9 +122,13 @@ Biomedical Image Registration Dawant.等
 
 大话数据结构 程杰
 
-树莓派开发实战 Simon Monk
+**Linux命令行与shell脚本编程大全 布鲁姆**
+
+Linux命令行大全 William Shotts
 
 **鸟哥的Linux私房菜**
+
+树莓派开发实战 Simon Monk
 
 **树莓派开始，玩转Linux Vamei**
 
@@ -220,6 +224,8 @@ Unix&Linux大学教程 Harley Hahn
 [吴恩达 2020最新课程人工智能医疗诊断 AI for Medical Diagnosis](https://www.bilibili.com/video/BV1Tt4y117Au?spm_id_from=333.999.0.0)
 
 [Meta Learning（元学习）](https://www.bilibili.com/video/BV1aT4y1u7e6?spm_id_from=333.999.0.0)
+
+[linux兄弟连](https://www.bilibili.com/medialist/play/watchlater/BV1mW411i7Qf)
 
 **[【难懂的数学】傅里叶、拉普拉斯、卷积、欧拉方程、梯度散度、拉格朗日方程](https://www.bilibili.com/video/BV1kX4y1u7GJ?spm_id_from=333.999.0.0)**
 
