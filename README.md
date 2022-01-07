@@ -101,6 +101,8 @@ MATLAB神经网络的43个案例分析 王小川
 
 迁移学习导论 王晋东
 
+Learning OpenCV4 computer vision with python3  Joseph Howse
+
 OpenCV轻松入门 李立宗
 
 异源图像匹配关键技术 董晶/罗世彬.等
