@@ -50,9 +50,17 @@ STM32库开发实战指南-基于STM32F4 刘火良
 
 数字图像处理与机器视觉VisualC++和MATLAB实现 张铮等
 
+**VISION-A Computational Investigation into the Human Representation and Processing of Visual Information**
+
+**机器视觉 伯特霍尔德**
+
+机器视觉教程 辛德
+
 **图像工程-全三册 章毓晋**
 
 机器人学、机器视觉与控制 Peter Corke
+
+视觉SLAM十四讲 高翔.等
 
 MEMS与微系统 Tai-Ran Hsu
 
