@@ -91,6 +91,8 @@ Python数据科学手册 Jake VanderPlas
 
 **机器学习实战 Aurélien Géron**
 
+机器学习公式推导与代码实现 鲁伟
+
 **深度学习 Ian Godfellow**
 
 **动手学深度学习 Aston Zhang/李沐**
