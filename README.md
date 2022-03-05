@@ -17,8 +17,6 @@ MATLAB数值计算 Cleve B. Moler
 
 误差分析导论 John R. Tylor
 
-误差分析与测量不确定度评定 沙定国
-
 ---------------------------
 
 # 电子信息专业基础
@@ -38,7 +36,9 @@ STM32库开发实战指南-基于STM32F4 刘火良
 
 嵌入式实时操作系统Μc/OS-Ⅱ原理及应用 任哲
 
-自动控制原理 卢京潮
+硬件十万个为什么-无源器件篇
+
+**自动控制原理 卢京潮**
 
 自动控制原理与设计 GeneF.Frankl
 
@@ -46,17 +46,17 @@ STM32库开发实战指南-基于STM32F4 刘火良
 
 **数字图像处理 冈萨雷斯**
 
-数字图像处理（MATLAB版） 冈萨雷斯
+数字图像处理（MATLAB版）本科教学 冈萨雷斯
 
 数字图像处理与机器视觉VisualC++和MATLAB实现 张铮等
 
-**VISION-A Computational Investigation into the Human Representation and Processing of Visual Information**
+**VISION-A Computational Investigation into the Human Representation and Processing of Visual Information   David Marr等**
 
 **机器视觉 伯特霍尔德**
 
 机器视觉教程 辛德
 
-**图像工程-全三册 章毓晋**
+图像工程-全三册 章毓晋
 
 机器人学、机器视觉与控制 Peter Corke
 
@@ -73,13 +73,9 @@ Python编程快速上手 Al Sweigart
 
 **effective python 布雷特·斯拉特金**
 
-**利用Python进行数据分析 Wes McKinney**
-
-Python数据科学手册 Jake VanderPlas 
+利用Python进行数据分析 Wes McKinney
 
 **Learning from data Yaser S..**
-
-统计思维 Allen B.Downey
 
 **流畅的Python Luciano Ramalho**
 
@@ -91,7 +87,9 @@ Python数据科学手册 Jake VanderPlas
 
 **机器学习实战 Aurélien Géron**
 
-机器学习公式推导与代码实现 鲁伟
+机器学习公式详解（配套西瓜书） 谢文睿 秦州
+
+**深度学习实战 Anirudh Koul等**
 
 **深度学习 Ian Godfellow**
 
@@ -102,6 +100,8 @@ Python数据科学手册 Jake VanderPlas
 **集体智慧编程 Toby Segaran**
 
 模式识别 吴建鑫
+
+Python大数据分析与机器学习商业案例实战 王宇韬 钱研竹
 
 MATLAB神经网络的43个案例分析 王小川
 
@@ -136,13 +136,19 @@ Biomedical Image Registration Dawant.等
 
 **数据结构C++版 邓俊辉**
 
+我的第一本算法书 石田保辉等
+
+**漫画算法：小灰的算法之旅Python篇 魏梦舒**
+
+趣学算法 陈小玉
+
 大话数据结构 程杰
 
 **Linux命令行与shell脚本编程大全 布鲁姆**
 
 Linux命令行大全 William Shotts
 
-**鸟哥的Linux私房菜**
+鸟哥的Linux私房菜
 
 树莓派开发实战 Simon Monk
 
@@ -166,13 +172,17 @@ Unix&Linux大学教程 Harley Hahn
 
 **编程珠玑 Jon Bentley**
 
-永恒的图灵 S. Barry Cooper
-
 计算机程序的构造和解释 Harold Abelson
+
+计算机系统基础 袁春风
 
 深入理解计算机系统（CSAPP）
 
+Java编程的逻辑 马俊昌
+
 计算机科学导论 贝赫鲁兹·佛罗赞
+
+微信小程序开发入门与实践 雷磊
 
 数据密集型应用系统设计 Martin Kleppmann
 
@@ -180,6 +190,14 @@ Unix&Linux大学教程 Harley Hahn
 
 # 科普 & 综述
 **上帝掷骰子吗 曹天元**
+
+**别闹了，费曼先生**
+
+**世界前沿技术发展报告2022 国务院**
+
+**永恒的图灵 S.Barry Cooper等**
+
+现实不似你所见-量子引力之旅 卡洛·罗韦利
 
 科学哲学 奥卡沙
 
