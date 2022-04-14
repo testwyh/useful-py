@@ -48,15 +48,13 @@ STM32库开发实战指南-基于STM32F4 刘火良
 
 数字图像处理（MATLAB版）本科教学 冈萨雷斯
 
-数字图像处理与机器视觉VisualC++和MATLAB实现 张铮等
-
-**VISION-A Computational Investigation into the Human Representation and Processing of Visual Information   David Marr等**
-
 **机器视觉 伯特霍尔德**
 
 机器视觉教程 辛德
 
 图像工程-全三册 章毓晋
+
+图像处理、分析与机器视觉-基于LabVIEW 杨高科
 
 机器人学、机器视觉与控制 Peter Corke
 
@@ -75,7 +73,7 @@ Python编程快速上手 Al Sweigart
 
 利用Python进行数据分析 Wes McKinney
 
-**Learning from data Yaser S..**
+Learning from data Yaser S..
 
 **流畅的Python Luciano Ramalho**
 
@@ -107,7 +105,7 @@ MATLAB神经网络的43个案例分析 王小川
 
 MATLAB统计分析与应用40个案例分析 谢中华
 
-**百面机器学习 诸葛越.等**
+百面机器学习 诸葛越.等
 
 百面深度学习 诸葛越.等
 
