@@ -7,15 +7,11 @@
 
 概率论与数理统计 陈希孺
 
-概率论基础教程 Sheldon M. Ross
-
 **最优化导论 Edwin K.P..**
 
 **最优化-建模、算法与理论 刘浩洋.等**
 
 MATLAB数值计算 Cleve B. Moler
-
-误差分析导论 John R. Tylor
 
 ---------------------------
 
@@ -52,8 +48,6 @@ STM32库开发实战指南-基于STM32F4 刘火良
 
 机器视觉教程 辛德
 
-图像工程-全三册 章毓晋
-
 图像处理、分析与机器视觉-基于LabVIEW 杨高科
 
 机器人学、机器视觉与控制 Peter Corke
@@ -84,8 +78,6 @@ Learning from data Yaser S..
 **Python深度学习 弗朗索瓦•肖莱**
 
 **机器学习实战 Aurélien Géron**
-
-机器学习公式详解（配套西瓜书） 谢文睿 秦州
 
 **深度学习实战 Anirudh Koul等**
 
@@ -156,8 +148,6 @@ Linux命令行大全 William Shotts
 
 Linux/UNIX系统编程手册 Michael Kerrisk
 
-Unix&Linux大学教程 Harley Hahn
-
 面向对象是怎样工作的 平泽章
 
 算法图解 巴尔加瓦
@@ -171,8 +161,6 @@ Unix&Linux大学教程 Harley Hahn
 **编程珠玑 Jon Bentley**
 
 计算机程序的构造和解释 Harold Abelson
-
-计算机系统基础 袁春风
 
 深入理解计算机系统（CSAPP）
 
