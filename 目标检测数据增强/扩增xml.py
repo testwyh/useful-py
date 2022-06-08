@@ -140,6 +140,7 @@ def mirror(img_dir, xml_dir, img_write_dir, xml_write_dir):
         h_MirrorAnno(anno_path, h_anno_write_path, img[:-4] + '_hflip' + '.jpg')
         v_MirrorAnno(anno_path, v_anno_write_path, img[:-4] + '_vflip' + '.jpg')
         a_MirrorAnno(anno_path, a_anno_write_path, img[:-4] + '_aflip' + '.jpg')
+        print(img)
 
 
 if __name__ == '__main__':
