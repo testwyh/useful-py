@@ -1,3 +1,4 @@
+import numpy
 import tensorflow as tf
 from PIL import Image
 from yolo_predict2 import YOLO
@@ -5,7 +6,7 @@ from yolo_predict2 import YOLO
 gpus = tf.config.experimental.list_physical_devices(device_type='GPU')
 for gpu in gpus:
     tf.config.experimental.set_memory_growth(gpu, True)
-    
+
 if __name__ == "__main__":
     yolo = YOLO()
     #----------------------------------------------------------------------------------------------------------#
@@ -74,77 +75,119 @@ if __name__ == "__main__":
 
         #-----------------------------------#
         # !!! 唯一需要手动设置的地方：confidence_num
-        confidence_num = 0.1
+        confidence_num = 0.01
         #-----------------------------------#
+        confidence_down=confidence_num
+        confidence_up=confidence_down+0.1
 
-        # 创建图片输出的文件夹
-        dir_save_path_NEO = str(confidence_num) + str('_') + str(dir_save_path) + "_NEO/"
-        dir_save_path_NONNEO = str(confidence_num) + str('_') + str(dir_save_path) + "_NONNEO/"
-        dir_save_path_fail_output = str(confidence_num) + str('_') + "img_out_fail/"
+        ########################## 修改部分  ################################################
+        if  confidence_down < 0.92 :
+            # 创建图片输出的文件夹
+            dir_save_path_NEO = str(confidence_down) + str('_') +str(confidence_up)+str('_') + str(dir_save_path) + "_NEO/"
+            dir_save_path_NONNEO = str(confidence_down) + str('_') +str(confidence_up)+str('_')  + str(dir_save_path) + "_NONNEO/"
+            dir_save_path_fail_output = str(confidence_down) + str('_') +str(confidence_up)+str('_')+ "img_out_fail/"
 
-        if not os.path.exists(dir_save_path_NEO):
-            os.makedirs(dir_save_path_NEO)
-        if not os.path.exists(dir_save_path_NONNEO):
-            os.makedirs(dir_save_path_NONNEO)
-        if not os.path.exists(dir_save_path_fail_output):
-            os.makedirs(dir_save_path_fail_output)
+            if not os.path.exists(dir_save_path_NEO):
+                os.makedirs(dir_save_path_NEO)
+            if not os.path.exists(dir_save_path_NONNEO):
+                os.makedirs(dir_save_path_NONNEO)
+            if not os.path.exists(dir_save_path_fail_output):
+                os.makedirs(dir_save_path_fail_output)
 
-        # 统计识别和未识别图片个数
-        num_NEO = 0
-        num_NONNEO = 0
-        fail = 0
+            # 统计识别和未识别图片个数
+            num_NEO = 0
+            num_NONNEO = 0
+            fail = 0
 
-        img_names = os.listdir(dir_origin_path)
-        for img_name in tqdm(img_names):
-            if img_name.lower().endswith(('.bmp', '.dib', '.png', '.jpg', '.jpeg', '.pbm', '.pgm', '.ppm', '.tif', '.tiff')):
-                image_path  = os.path.join(dir_origin_path, img_name)
-                image       = Image.open(image_path)
+            img_names = os.listdir(dir_origin_path)
+            ###tpdm  进度条
+            for img_name in tqdm(img_names):
+                ####如果图片末尾是  .....
+                if img_name.lower().endswith(('.bmp', '.dib', '.png', '.jpg', '.jpeg', '.pbm', '.pgm', '.ppm', '.tif', '.tiff')):
+                    image_path  = os.path.join(dir_origin_path, img_name)
+                    image       = Image.open(image_path)
 
-                # 修改detect_image 的返回值
-                r_image, out_scores, out_classes = yolo.detect_image(image)
+                    # 修改detect_image 的返回值
+                    r_image, out_scores, out_classes = yolo.detect_image(image)
 
-                # 打印测试区域
-                print('------------------')
-                print(img_name)
-                logging.debug(out_scores)
-                out_scores_size = out_scores.numpy().size
-                logging.debug(out_scores_size)
+                    # 打印测试区域
+                   # print('------------------')
+                   # print(img_name)
 
-                threshold = tf.constant([confidence_num])
+                    logging.debug(out_scores)
+                    out_scores_size = out_scores.numpy().size
 
-                # 比较 out_scores 和 threshold
-                flag = tf.greater(out_scores, threshold)
-                if any(flag):  # any()语法： 只要flag中存在True时即返回True
-                    # flag2 = (predicted_class == 'NEO')
-                    flag2 = (0 in out_classes) # 如果NEO（标签为0）在预测结果中，返回True
-                    if flag2:
-                        r_image.save(os.path.join(dir_save_path_NEO, img_name.replace(".jpg", ".png")), quality=95, subsampling=0)
-                        num_NEO += 1
-                    else:
-                        r_image.save(os.path.join(dir_save_path_NONNEO, img_name.replace(".jpg", ".png")), quality=95, subsampling=0)
-                        num_NONNEO += 1
-                else:
-                    r_image.save(os.path.join(dir_save_path_fail_output, img_name.replace(".jpg", ".png")), quality=95,subsampling=0)
-                    fail += 1
+                    print('------------------')
+                    print(out_scores.numpy())
+                    print(out_scores.numpy().max())
+                    #-----------------------------------------------------------------------------------------------------
+                    #if out_scores.numpy().size == 0:
+                    #-----------------------------------------------------------------------------------------------------
+                    if out_scores.numpy().size!=0:
 
-        # 修改中---预测结果保存至txt中
-        total = num_NEO + num_NONNEO + fail
-        accuracy = num_NEO / total
-        f = open(os.path.join(os.getcwd(), str(confidence_num) + '_predict.txt'), 'a')
-        f.write("预测的图片总数:  " + str(total))
-        f.write("\r")
-        f.write("---识别出置信框:  " + str(num_NEO + num_NONNEO))
-        f.write("\r")
-        f.write(" |---识别为肿瘤性:  " + str(num_NEO))
-        f.write("\r")
-        f.write(" |---识别为非肿瘤:  " + str(num_NONNEO))
-        f.write("\r")
-        f.write("---未识别出置信框:  " + str(fail))
-        f.write("\r")
-        f.write("识别肿瘤性的比例:  " + str(accuracy*100) + "%")
-        f.close()
+                        locat =out_scores.numpy().argmax(axis=None, out=None)  ##找最大值位置
+                        print(locat)
+                        #out_scores_max = out_scores.numpy().max()
+                        #print(type(out_scores.numpy()))
 
-        #######################以上为修改部分##########################
+                        print(out_classes.numpy())
+                        a=out_classes.numpy()
+                        class1=a[locat]            ##找最大值位置 的类别
+                        print(class1)
+                        #print(type(out_classes.numpy()))
+                        #out_classes = out_classes.numpy().size
+                        #print(out_classes.numpy())
+
+                        print('------------------')
+                        logging.debug(out_scores_size)
+
+                        ###化为张量
+                        threshold = tf.constant([confidence_down])
+                        threshold1 = tf.constant([confidence_up])
+                        print(threshold)
+                        # 比较 out_scores 和 threshold   结果 true or false
+
+                        flag = tf.greater(out_scores, threshold)
+
+                        flag1 = tf.greater(threshold1,out_scores)
+
+                        if any(flag&flag1):  # any()语法： 只要flag中存在True时即返回True
+                            # flag2 = (predicted_class == 'NEO')
+                            flag2 = (0 in out_classes) # 如果NEO（标签为0）在预测结果中，返回True
+                            if flag2:
+                                r_image.save(os.path.join(dir_save_path_NEO, img_name.replace(".jpg", ".png")), quality=95, subsampling=0)
+                                num_NEO += 1
+                            else:
+                                r_image.save(os.path.join(dir_save_path_NONNEO, img_name.replace(".jpg", ".png")), quality=95, subsampling=0)
+                                num_NONNEO += 1
+                        ##else:
+                        ##    r_image.save(os.path.join(dir_save_path_fail_output, img_name.replace(".jpg", ".png")), quality=95,subsampling=0)
+                        ##    fail += 1
+
+            # 修改中---预测结果保存至txt中0
+            total = num_NEO + num_NONNEO + fail
+            accuracy = num_NEO / total
+            ####   getcwd()  当前路径
+            f = open(os.path.join(os.getcwd(), str(confidence_down) + str('_') +str(confidence_up) + '_predict.txt'), 'a')
+            f.write("预测的图片总数:  " + str(total))
+            f.write("\r")
+            f.write("---识别出置信框:  " + str(num_NEO + num_NONNEO))
+            f.write("\r")
+            f.write(" |---识别为肿瘤性:  " + str(num_NEO))
+            f.write("\r")
+            f.write(" |---识别为非肿瘤:  " + str(num_NONNEO))
+            f.write("\r")
+            f.write("---未识别出置信框:  " + str(fail))
+            f.write("\r")
+            f.write("识别肿瘤性的比例:  " + str(accuracy*100) + "%")
+            f.close()
+
+            confidence_down=confidence_down+0.1
+            confidence_up=confidence_down+0.1
+            #######################以上为修改部分##########################
+
+
+
 
     elif mode == "heatmap":
         while True:
@@ -156,6 +199,6 @@ if __name__ == "__main__":
                 continue
             else:
                 yolo.detect_heatmap(image, heatmap_save_path)
-        
+
     else:
         raise AssertionError("Please specify the correct mode: 'predict', 'video', 'fps' or 'dir_predict'.")

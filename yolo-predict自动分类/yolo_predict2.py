@@ -47,7 +47,7 @@ class YOLO(object):
         #---------------------------------------------------------------------#
         #   只有得分大于置信度的预测框会被保留下来
         #---------------------------------------------------------------------#
-        "confidence"        : 0.1,
+        "confidence"        : 0.2,
         #---------------------------------------------------------------------#
         #   非极大抑制所用到的nms_iou大小
         #---------------------------------------------------------------------#
@@ -109,6 +109,7 @@ class YOLO(object):
         #---------------------------------------------------------#
         self.input_image_shape = Input([2,],batch_size=1)
         inputs  = [*self.yolo_model.output, self.input_image_shape]
+
         outputs = Lambda(
             DecodeBox, 
             output_shape = (1,), 
@@ -194,9 +195,9 @@ class YOLO(object):
         #   图像绘制
         #---------------------------------------------------------#
         for i, c in list(enumerate(out_classes)):
-            predicted_class = self.class_names[int(c)]
-            box             = out_boxes[i]
-            score           = out_scores[i]
+            predicted_class = self.class_names[int(c)]#类别
+            box             = out_boxes[i]            #框坐标
+            score           = out_scores[i]           #分数
 
             top, left, bottom, right = box
 
