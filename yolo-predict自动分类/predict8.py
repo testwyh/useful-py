@@ -3,7 +3,6 @@ import tensorflow as tf
 from PIL import Image
 from yolo_predict2 import YOLO
 import os
-
 gpus = tf.config.experimental.list_physical_devices(device_type='GPU')
 for gpu in gpus:
     tf.config.experimental.set_memory_growth(gpu, True)
@@ -66,7 +65,7 @@ if __name__ == "__main__":
 
         # -----------------------------------#
         # !!! 唯一需要手动设置的地方：confidence_num
-        confidence_num = 0.05  # -----------------------------------#
+        confidence_num = 0.01  # -----------------------------------#
         confidence_down = confidence_num
         confidence_up = confidence_down + 0.1
 
@@ -84,7 +83,7 @@ if __name__ == "__main__":
             all_save_path_allNONNEO = str(dir_save_path) + "_all_NONNEO/"
             # all_save_path_allNEOandNONNEO = str(dir_save_path) + "_all_NEO_and_NONNEO/"
 
-            ####测试混合
+####测试混合
             # all_save_path_all_NEO_and_NONNE_000 =  str(dir_save_path) + "_all_NEO_0/"
             # all_save_path_all_NEO_and_NONNE_O01 = str(dir_save_path) + "_all_NEO_1/"
 
@@ -122,13 +121,11 @@ if __name__ == "__main__":
             num2 = 0
 
             img_names = os.listdir(dir_origin_path)
-
             #   按照1，2，3顺序读图片
             img_names.sort(key=lambda x:int(x.split('.')[0]))
 
             ###tpdm  进度条
             for img_name in tqdm(img_names):
-
                 ####如果图片末尾是  .....
                 if img_name.lower().endswith(
                         ('.bmp', '.dib', '.png', '.jpg', '.jpeg', '.pbm', '.pgm', '.ppm', '.tif', '.tiff')):
@@ -151,9 +148,9 @@ if __name__ == "__main__":
                     filename, extension = os.path.splitext(img_name)
                     filename = int(filename)
                     print(img_name)
-                    #print(filename)
+                    # print(filename)
 
-                    # -----------------------------------------------------------------------------------------------#
+                # -----------------------------------------------------------------------------------------------#
 
                     out_scores_size = out_scores.numpy().size
 
@@ -200,14 +197,14 @@ if __name__ == "__main__":
                         # out_classes = out_classes.numpy().size
                         # print(out_classes.numpy())
 
-                    # ------------------------------------------------------------------------------------------------#
+                    # -----------------------------------------------------------------------------------------------#
                         # 判断语句
 
                         flag3 = (0 in a) & (1 not in a)  # 全为0
                         flag4 = (1 in a) & (0 not in a)  # 全为1
                         flag5 = (1 in a) & (0 in a)  # 0和1 都有
 
-                        # -----------------------------------------------------------------------------------------------#
+                    # -----------------------------------------------------------------------------------------------#
 
                         # 如果全为0（癌症），进入癌症文件夹
                         if flag3:
@@ -215,9 +212,9 @@ if __name__ == "__main__":
                             # print(filename)
                             # print(type(filename))
                             if (filename < 500):
-                                num_NEO_ture = num_NEO_ture + 1
-                                print("正确的数量是：")
-                                print(num_NEO_ture)
+                               num_NEO_ture = num_NEO_ture + 1
+                               print("正确的数量是：")
+                               print(num_NEO_ture)
                             if (filename > 500):
                                 num_NEO_flase = num_NEO_flase + 1
                                 print("错误的数量是：")
@@ -228,7 +225,7 @@ if __name__ == "__main__":
                             f2.write('\r')
                             f2.close()
 
-                        # -----------------------------------------------------------------------------------------------#
+                    #-----------------------------------------------------------------------------------------------#
 
                         # 如果全为1（非癌症），进入这个非癌症文件夹
                         if flag4:  # 如果全为1（非癌症），进入这个非癌症文件夹
@@ -244,7 +241,7 @@ if __name__ == "__main__":
                             r_image.save(os.path.join(all_save_path_allNONNEO, img_name.replace(".jpg", ".png")),quality=95, subsampling=0)
 
 
-                        # -----------------------------------------------------------------------------------------------#
+                    # -----------------------------------------------------------------------------------------------#
                         # 如果同时有0和1，进入这个算法
                         if flag5:
                             num_NEO_and_NONNEO += 1
@@ -316,7 +313,6 @@ if __name__ == "__main__":
 
             print("灵敏度：")
             print((num_NEO_ture + num_NEO_and_NONNEO_ture) / 334)
-            print(num_NEO_and_NONNEO_ture)
 
             print(num_NEO_ture)
             print(num_NEO_and_NONNEO_ture)
@@ -361,16 +357,6 @@ if __name__ == "__main__":
             f.write("阴性预测值:  " + str(((num_NONNEO_ture + num_NEO_and_NONNEO_flase) / num2) * 100) + '%')
             f.write("\r")
             f.close()
-
-            # 第二个txt
-            # f = open(os.path.join(os.getcwd(), str(confidence_num) + '_predict_report2.txt'), 'a')
-            # f.write("全0：" + str(num_NEO_ture))
-            # f.write("\r")
-            # f.write("全0/测试：" + str((num_NEO_ture/334)*100)+'%')
-            # f.write("癌症错误的数量是:  " + str(num_NEO_flase))
-            # f.write("\r")
-            # f.write("癌症错误/测试：")
-
 
             confidence_down = confidence_down + 0.1
             confidence_up = confidence_down + 0.1

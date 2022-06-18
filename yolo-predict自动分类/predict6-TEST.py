@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
         # -----------------------------------#
         # !!! 唯一需要手动设置的地方：confidence_num
-        confidence_num = 0.04  # -----------------------------------#
+        confidence_num = 0.9  # -----------------------------------#
         confidence_down = confidence_num
         confidence_up = confidence_down + 0.1
 
@@ -219,7 +219,7 @@ if __name__ == "__main__":
                                 num_NEO_flase = num_NEO_flase + 1
                                 print("错误的数量是：")
                                 print(num_NEO_flase)
-                            r_image.save(os.path.join(all_save_path_allNEO, img_name.replace(".jpg", ".png")),quality=95, subsampling=0)
+                            # r_image.save(os.path.join(all_save_path_allNEO, img_name.replace(".jpg", ".png")),quality=95, subsampling=0)
 
                             f2.write(img_name+"\t\t\t\t\t"+str(tempNEO_max))
                             f2.write('\r')
@@ -238,7 +238,7 @@ if __name__ == "__main__":
                                 num_NONNEO_flase = num_NONNEO_flase + 1
                                 # print("错误的数量是：")
                                 # print(num_NONNEO_flase)
-                            r_image.save(os.path.join(all_save_path_allNONNEO, img_name.replace(".jpg", ".png")),quality=95, subsampling=0)
+                            # r_image.save(os.path.join(all_save_path_allNONNEO, img_name.replace(".jpg", ".png")),quality=95, subsampling=0)
 
 
                     # -----------------------------------------------------------------------------------------------#
@@ -267,7 +267,7 @@ if __name__ == "__main__":
                                  else :
                                       num1 += 1
 
-                                 r_image.save(os.path.join(all_save_path_allNEO, img_name.replace(".jpg", ".png")),  quality=95, subsampling=0)
+                                 # r_image.save(os.path.join(all_save_path_allNEO, img_name.replace(".jpg", ".png")),  quality=95, subsampling=0)
 
 
                             if(class1 == 1 ):
@@ -277,11 +277,11 @@ if __name__ == "__main__":
 
                                 else:
                                     num2 += 1
-                                r_image.save(os.path.join(all_save_path_allNONNEO,img_name.replace(".jpg", ".png")),   quality=95, subsampling=0)
+                                # r_image.save(os.path.join(all_save_path_allNONNEO,img_name.replace(".jpg", ".png")),   quality=95, subsampling=0)
 
                     # -----------------------------------------------------------------------------------------------#
                     else:
-                         r_image.save(os.path.join(dir_save_path_fail_output, img_name.replace(".jpg", ".png")), quality=95,subsampling=0)
+                         # r_image.save(os.path.join(dir_save_path_fail_output, img_name.replace(".jpg", ".png")), quality=95,subsampling=0)
                          fail += 1
             # -----------------------------------------------------------------------------------------------#
             # 打印出来结果
