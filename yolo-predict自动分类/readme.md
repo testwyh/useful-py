@@ -16,7 +16,9 @@
 **设置：**
 在yolo_predict2.py中，根据自己需要修改 confidence
 
-在predict2.py中，根据自己需要修改 confidence_num
+同样地，在predict2.py中，根据自己需要修改 confidence_num
+
+6.8 更新 predict1.py 及 predict2.py
 
 6.11 更新 predict3.py 及 predict4.py
 
