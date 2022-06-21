@@ -55,13 +55,13 @@ class GEN_Annotations:
         tree = etree.ElementTree(self.root)
         tree.write(filename, pretty_print=True, xml_declaration=False, encoding='utf-8')
 
-if __name__ == '__main__':
-    filename = "000001.jpg" # 图片名
-    anno = GEN_Annotations(filename)
-    anno.set_size(621, 540, 3) # 图片尺寸
-    xmin = 93    # 框的四个坐标值
-    ymin = 260
-    xmax = 247
-    ymax = 407
-    anno.add_pic_attr("NEO", xmin, ymin, xmax, ymax) #设置name的类别
-    anno.savefile("00001.xml") #导出的xml文件名
+# if __name__ == '__main__':
+#     filename = "000001.jpg" # 图片名
+#     anno = GEN_Annotations(filename)
+#     anno.set_size(621, 540, 3) # 图片尺寸
+#     xmin = 93    # 框的四个坐标值
+#     ymin = 260
+#     xmax = 247
+#     ymax = 407
+#     anno.add_pic_attr("NEO", xmin, ymin, xmax, ymax) #设置name的类别
+#     anno.savefile("00001.xml") #导出的xml文件名
