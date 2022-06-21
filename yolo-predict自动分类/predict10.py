@@ -85,10 +85,6 @@ if __name__ == "__main__":
             all_save_path_allNONNEO = str(dir_save_path) + "_all_NONNEO/"
             # all_save_path_allNEOandNONNEO = str(dir_save_path) + "_all_NEO_and_NONNEO/"
 
-####测试混合
-            # all_save_path_all_NEO_and_NONNE_000 =  str(dir_save_path) + "_all_NEO_0/"
-            # all_save_path_all_NEO_and_NONNE_O01 = str(dir_save_path) + "_all_NEO_1/"
-
             # if not os.path.exists(dir_save_path_NEO):
             #     os.makedirs(dir_save_path_NEO)
             # if not os.path.exists(dir_save_path_NONNEO):
@@ -104,12 +100,6 @@ if __name__ == "__main__":
 
             if not os.path.exists(xml_save_path):
                 os.makedirs(xml_save_path)
-
-            ##测试混合的情况下
-            # if not os.path.exists(all_save_path_all_NEO_and_NONNE_000):
-            #     os.makedirs(all_save_path_all_NEO_and_NONNE_000)
-            # if not os.path.exists(all_save_path_all_NEO_and_NONNE_O01):
-            #     os.makedirs(all_save_path_all_NEO_and_NONNE_O01)
 
             # 统计识别和未识别图片个数
             # num_NEO = 0
@@ -139,32 +129,22 @@ if __name__ == "__main__":
 
                     ############---------------------------------------------------------------------##########
                     # 修改detect_image 的返回值
-
                     print("名字是：------------------------------")
                     print(img_name)
-
                     r_image, out_scores, out_classes,top,right, left,bottom= yolo.detect_image(image)
 
-                    # 打印测试区域
-                    # print('------------------')
-                    # -----------------------------------------------------------------------------------------------#
                     # 分离名字 进行格式转换
-
                     filename, extension = os.path.splitext(img_name)
                     filename = int(filename)
                     # print(img_name)
                     # print(filename)
-
                 # -----------------------------------------------------------------------------------------------#
-
                     out_scores_size = out_scores.numpy().size
-
                     # print('------------------')
                     # print(out_scores.numpy())
                     # print(out_scores.numpy().max()) # 这句不能有，会报错
                     # -----------------------------------------------------------------------------------------------------
                     if out_scores.numpy().size != 0:
-
                         f2 = open(os.path.join(os.getcwd(), str(confidence_num) + '_predict_report2.txt'), 'a')
                         f3 = open(os.path.join(os.getcwd(), str(confidence_num) + '_predict_report3.txt'), 'a')
 
@@ -225,14 +205,13 @@ if __name__ == "__main__":
                                 num_NEO_flase = num_NEO_flase + 1
                                 print("错误的数量是：")
                                 print(num_NEO_flase)
-                            #r_image.save(os.path.join(all_save_path_allNEO, img_name.replace(".jpg", ".png")),quality=95, subsampling=0)
+                            r_image.save(os.path.join(all_save_path_allNEO, img_name.replace(".jpg", ".png")),quality=95, subsampling=0)
 
                             f2.write(img_name+"\t\t\t\t\t"+str(tempNEO_max))
                             f2.write('\r')
                             f2.close()
 
                     #-----------------------------------------------------------------------------------------------#
-
                         # 如果全为1（非癌症），进入这个非癌症文件夹
                         if flag4:  # 如果全为1（非癌症），进入这个非癌症文件夹
                             num2 += 1
@@ -244,7 +223,7 @@ if __name__ == "__main__":
                                 num_NONNEO_flase = num_NONNEO_flase + 1
                                 # print("错误的数量是：")
                                 # print(num_NONNEO_flase)
-                            #r_image.save(os.path.join(all_save_path_allNONNEO, img_name.replace(".jpg", ".png")),quality=95, subsampling=0)
+                            r_image.save(os.path.join(all_save_path_allNONNEO, img_name.replace(".jpg", ".png")),quality=95, subsampling=0)
 
                     # -----------------------------------------------------------------------------------------------#
                         # 如果同时有0和1，进入这个算法
@@ -258,10 +237,6 @@ if __name__ == "__main__":
                             f3.write('\r')
                             f3.close()
 
-                            # r_image.save(
-                            #     os.path.join(all_save_path_allNEOandNONNE000, img_name.replace(".jpg", ".png")),
-                            #     quality=95, subsampling=0)
-
                             if(class1 ==0 ):
 
                                  if (filename < 500):
@@ -272,7 +247,7 @@ if __name__ == "__main__":
                                  else :
                                       num1 += 1
 
-                                 #r_image.save(os.path.join(all_save_path_allNEO, img_name.replace(".jpg", ".png")),  quality=95, subsampling=0)
+                                 r_image.save(os.path.join(all_save_path_allNEO, img_name.replace(".jpg", ".png")),  quality=95, subsampling=0)
 
                             if(class1 == 1 ):
                                 if (filename > 500):
@@ -281,12 +256,13 @@ if __name__ == "__main__":
 
                                 else:
                                     num2 += 1
-                                #r_image.save(os.path.join(all_save_path_allNONNEO,img_name.replace(".jpg", ".png")),   quality=95, subsampling=0)
+                                r_image.save(os.path.join(all_save_path_allNONNEO,img_name.replace(".jpg", ".png")),   quality=95, subsampling=0)
 
                     # -----------------------------------------------------------------------------------------------#
                     else:
-                         #r_image.save(os.path.join(dir_save_path_fail_output, img_name.replace(".jpg", ".png")), quality=95,subsampling=0)
+                         r_image.save(os.path.join(dir_save_path_fail_output, img_name.replace(".jpg", ".png")), quality=95,subsampling=0)
                          fail += 1
+
                 ##----------------------------------------------------------------------------------------------------##
                 ## 写文件  name class confidence top left right  bottom
                 f4 = open(os.path.join(os.getcwd(), 'result.txt'), 'a')
@@ -301,6 +277,11 @@ if __name__ == "__main__":
                              str(0) + "\t")
                     f4.write('\r')
 
+                    f_fail = open(os.path.join(os.getcwd(), 'fail.txt'), 'a')
+                    f_fail.write(str('没有预测结果：')+"\t"+str(img_name))
+                    f_fail.write('\r')
+                    f_fail.close()
+
                     anno = GEN_Annotations(img_name)
                     anno.set_size(image.width, image.height, 3)  # 图片尺寸
                     anno.add_pic_attr("NEO", 0, 0, 0, 0)  # 设置name的类别,框的四个坐标值
@@ -311,7 +292,6 @@ if __name__ == "__main__":
                     if int(right) < 0: right = 0
                     if int(left) < 0: left = 0
                     if int(bottom) < 0: bottom = 0
-
                     # print("top1是：")
                     # print(int(top))
                     # print("top1结束")
@@ -344,87 +324,84 @@ if __name__ == "__main__":
                         anno.savefile(os.path.join(xml_save_path+str(filename)+'.xml'))
 
             # # -----------------------------------------------------------------------------------------------#
-            # # 打印出来结果
-            # print("全0癌症正确的数量是：")
-            # print(num_NEO_ture)
-            #
-            # print("全0癌症错误的数量是：")
-            # print(num_NEO_flase)
-            #
-            # print("全1非癌症正确的数量是：")
-            # print(num_NONNEO_ture)
-            #
-            # print("全1非癌症错误的数量是：")
-            # print(num_NONNEO_flase)
-            #
-            # print("未识别的数量是：")
-            # print(fail)
-            #
-            # print("混合的数量是：")
-            # print(num_NEO_and_NONNEO)
-            #
-            # print("未识别率：")
-            # print(fail / 538)
-            #
-            # print("错误识别率：")
-            # print((num_NEO_flase + num_NONNEO_flase) / 538)
-            #
-            # print("混合识别率：")
-            # print(num_NEO_and_NONNEO / 538)
-            #
-            # print("灵敏度：")
-            # print((num_NEO_ture + num_NEO_and_NONNEO_ture) / 334)
-            #
-            # print(num_NEO_ture)
-            # print(num_NEO_and_NONNEO_ture)
-            #
-            # print("特异度：")
-            # print((num_NONNEO_ture + num_NEO_and_NONNEO_flase) / 204)
-            #
-            # print("阳性预测值：")
-            # print((num_NEO_ture + num_NEO_and_NONNEO_ture) / num1)
-            #
-            # print("阴性预测值：")
-            # print((num_NONNEO_ture + num_NEO_and_NONNEO_flase) / num2)
+            # 打印出来结果
+            print("全0癌症正确的数量是：")
+            print(num_NEO_ture)
+
+            print("全0癌症错误的数量是：")
+            print(num_NEO_flase)
+
+            print("全1非癌症正确的数量是：")
+            print(num_NONNEO_ture)
+
+            print("全1非癌症错误的数量是：")
+            print(num_NONNEO_flase)
+
+            print("未识别的数量是：")
+            print(fail)
+
+            print("混合的数量是：")
+            print(num_NEO_and_NONNEO)
+
+            print("未识别率：")
+            print(fail / 538)
+
+            print("错误识别率：")
+            print((num_NEO_flase + num_NONNEO_flase) / 538)
+
+            print("混合识别率：")
+            print(num_NEO_and_NONNEO / 538)
+
+            print("灵敏度：")
+            print((num_NEO_ture + num_NEO_and_NONNEO_ture) / 334)
+
+            print(num_NEO_ture)
+            print(num_NEO_and_NONNEO_ture)
+
+            print("特异度：")
+            print((num_NONNEO_ture + num_NEO_and_NONNEO_flase) / 204)
+
+            print("阳性预测值：")
+            print((num_NEO_ture + num_NEO_and_NONNEO_ture) / num1)
+
+            print("阴性预测值：")
+            print((num_NONNEO_ture + num_NEO_and_NONNEO_flase) / num2)
             # # -----------------------------------------------------------------------------------------------#
 
             # # 修改中---预测结果保存至txt中0
-            # ####   getcwd()  当前路径
-            # f = open(os.path.join(os.getcwd(), str(confidence_num) + '_predict_report.txt'), 'a')
-            # f.write("癌症正确的数量是:  " + str(num_NEO_ture))
-            # f.write("\r")
-            # f.write("癌症错误的数量是:  " + str(num_NEO_flase))
-            # f.write("\r")
-            # f.write("非癌症正确的数量是:  " + str(num_NONNEO_ture))
-            # f.write("\r")
-            # f.write("非癌症错误的数量是:  " + str(num_NONNEO_flase))
-            # f.write("\r")
-            # f.write("未识别的数量是:  " + str(fail))
-            # f.write("\r")
-            # f.write("混合的数量是:  " + str(num_NEO_and_NONNEO))
-            # f.write("\r")
-            # f.write("未识别率:  " + str((fail / 538) * 100) + '%')
-            # f.write("\r")
-            # f.write("错误识别率:  " + str(((num_NEO_flase + num_NONNEO_flase) / 538) * 100) + '%')
-            # f.write("\r")
-            # f.write("混合识别率:  " + str((num_NEO_and_NONNEO / 538) * 100) + '%')
-            # f.write("\r")
-            # f.write("灵敏度:  " + str(((num_NEO_ture + num_NEO_and_NONNEO_ture) / 334) * 100) + '%')
-            # f.write("\r")
-            # f.write("特异度:  " + str(((num_NONNEO_ture + num_NEO_and_NONNEO_flase) / 204) * 100) + '%')
-            # f.write("\r")
-            # f.write("阳性预测值:  " + str(((num_NEO_ture + num_NEO_and_NONNEO_ture) / num1) * 100) + '%')
-            # f.write("\r")
-            # f.write("阴性预测值:  " + str(((num_NONNEO_ture + num_NEO_and_NONNEO_flase) / num2) * 100) + '%')
-            # f.write("\r")
-            # f.close()
-            #
-            # confidence_down = confidence_down + 0.1
-            # confidence_up = confidence_down + 0.1
+            ####   getcwd()  当前路径
+            f = open(os.path.join(os.getcwd(), str(confidence_num) + '_predict_report.txt'), 'a')
+            f.write("癌症正确的数量是:  " + str(num_NEO_ture))
+            f.write("\r")
+            f.write("癌症错误的数量是:  " + str(num_NEO_flase))
+            f.write("\r")
+            f.write("非癌症正确的数量是:  " + str(num_NONNEO_ture))
+            f.write("\r")
+            f.write("非癌症错误的数量是:  " + str(num_NONNEO_flase))
+            f.write("\r")
+            f.write("未识别的数量是:  " + str(fail))
+            f.write("\r")
+            f.write("混合的数量是:  " + str(num_NEO_and_NONNEO))
+            f.write("\r")
+            f.write("未识别率:  " + str((fail / 538) * 100) + '%')
+            f.write("\r")
+            f.write("错误识别率:  " + str(((num_NEO_flase + num_NONNEO_flase) / 538) * 100) + '%')
+            f.write("\r")
+            f.write("混合识别率:  " + str((num_NEO_and_NONNEO / 538) * 100) + '%')
+            f.write("\r")
+            f.write("灵敏度:  " + str(((num_NEO_ture + num_NEO_and_NONNEO_ture) / 334) * 100) + '%')
+            f.write("\r")
+            f.write("特异度:  " + str(((num_NONNEO_ture + num_NEO_and_NONNEO_flase) / 204) * 100) + '%')
+            f.write("\r")
+            f.write("阳性预测值:  " + str(((num_NEO_ture + num_NEO_and_NONNEO_ture) / num1) * 100) + '%')
+            f.write("\r")
+            f.write("阴性预测值:  " + str(((num_NONNEO_ture + num_NEO_and_NONNEO_flase) / num2) * 100) + '%')
+            f.write("\r")
+            f.close()
+
+            confidence_down = confidence_down + 0.1
+            confidence_up = confidence_down + 0.1
             #######################以上为修改部分##########################
-
-
-
 
     elif mode == "heatmap":
         while True:

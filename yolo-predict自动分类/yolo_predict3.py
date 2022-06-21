@@ -195,11 +195,7 @@ class YOLO(object):
         #   图像绘制
         #---------------------------------------------------------#
 
-
-        f4 = open(os.path.join(os.getcwd(), 'result.txt'), 'a')
-
         print(out_scores.numpy())
-
 
         for i, c in list(enumerate(out_classes)):
             predicted_class = self.class_names[int(c)]#类别
@@ -229,57 +225,13 @@ class YOLO(object):
             draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)], fill=self.colors[c])
             draw.text(text_origin, str(label,'UTF-8'), fill=(0, 0, 0), font=font)
             del draw
-        # if out_scores.numpy().size == 0:
-        #     print("没有预测结果")
-        #     f4.write(str(0) + "\t" +
-        #              str(0) + "\t" +
-        #              str(0) + "\t" +
-        #              str(0) + "\t" +
-        #              str(0) + "\t" +
-        #              str(0) + "\t")
-        #     f4.write('\r')
-        #
-        # else:
-        #     out_scores_results = out_scores.numpy()
-        #     locat = out_scores_results.argmax(axis=None, out=None)  # 找最大值位置
-        #     a = out_classes.numpy()
-        #     class1 = a[locat]  # 找最大值位置 的类别
-        #     clas1_score = out_scores_results[locat]  # 最大值位置的框的置信度
-        #     top, left, bottom, right = out_boxes[locat]  # 最大值位置的框的四个坐标值
-        #     # print(class1)
-        #     # print(clas1_score)
-        #     # print(int(top))
-        #     # print(int(left))
-        #     # print(top)
-        #     # print(left)
-        #     # print(int(bottom))
-        #     # print(int(right))
-        #     if int(top) < 0: top = 0
-        #     if int(right) < 0: right = 0
-        #     if int(left) < 0: left = 0
-        #     if int(bottom) < 0: bottom = 0
-        #
-        #     print("top1是：")
-        #     print(int(top))
-        #     print("top1结束")
-        #     print("right1是：")
-        #     print(int(right))
-        #     print("right1结束")
-        #     print("left1是：")
-        #     print(int(left))
-        #     print("left1结束")
-        #     print("bottom1是：")
-        #     print(int(bottom))
-        #     print("bottom1结束")
-        #     f4.write(str(class1) + "\t" +
-        #              str(clas1_score) + "\t" +
-        #              str(int(top)) + "\t" +
-        #              str(int(right)) + "\t" +
-        #              str(int(left)) + "\t" +
-        #              str(int(bottom)) + "\t")
-        #     f4.write('\r')
-        #
-        # print("---------------------------")
+
+        # print(out_scores.numpy().size)
+        if out_scores.numpy().size == 0:
+            top = 0
+            right = 0
+            left = 0
+            bottom = 0
 
         return image, out_scores, out_classes,top,right,left,bottom, # 和原版相比，添加了 out_scores, out_classes
 
