@@ -13,6 +13,8 @@ def generate_jpg_size(base_dir):
         # print(img.width, img.height)
         print("read jpg " + str(i+1))
         ftrainval=open(os.path.join('./jpg_size.txt'), 'a') # 存储为txt
+        ftrainval.write(str(i+1))
+        ftrainval.write(' ')
         ftrainval.write(str(img.width))
         ftrainval.write(' ')
         ftrainval.write(str(img.height))
@@ -28,6 +30,8 @@ def generate_png_size(base_dir1):
         # print(img.width, img.height)
         print("read png " + str(i+1))
         ftrainval=open(os.path.join('./png_size.txt'), 'a')
+        ftrainval.write(str(i+1))
+        ftrainval.write(' ')
         ftrainval.write(str(img.width))
         ftrainval.write(' ')
         ftrainval.write(str(img.height))
